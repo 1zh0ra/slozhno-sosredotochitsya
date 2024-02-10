@@ -1,9 +1,9 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  max-width: 1024px;
+  /* max-width: 100%; */
+  max-height: 768px;
   color: var(--color-pink-2, #f1b2ce);
-  padding: 20px;
   font-family: var(--page-font-family, "IBM Plex mono", monospace);
   line-height: 23.4px;
   background-color: var(--color-pink-1, #fff1f7);
@@ -19,13 +19,9 @@
 
 .cover {
   display: grid;
-  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  height: 100%;
   min-block-size: 100vh;
-}
-
-.decorated-zone {
-  position: relative;
-  margin-block: 35px;
+  grid-template-rows: 1fr min-content 1fr;
 }
 
 .link {
@@ -36,18 +32,20 @@
 .rec-decor {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  inset-inline-end: 20px;
-  inset-block-start: 10px;
   position: absolute;
   z-index: -1;
   visibility: var(--rec-decor-visibility, visible);
+  margin-bottom: 705px;
+  margin-left: 945px;
+  gap: 5px;
 }
 
 .rec-decor::before {
   content: "REC";
   color: var(--accent-color, #ff0070);
   line-height: 24px;
+  display: inline-block;
+  font-size: 20px;
 }
 
 .rec-decor::after {
@@ -60,33 +58,30 @@
   block-size: 9px;
 }
 
+.shadow-decor,
 .page-title {
   text-shadow: 4px 4px 0 #ff0070;
   font-weight: 700;
   font-size: 157px;
   font-style: normal;
   line-height: 82.5%;
+  justify-self: start;
+  color: var(--brand-color);
 }
 
 .header {
-  align-items: start;
-}
-
-.footer {
-}
-
-.rec-decor::before {
-  content: "";
-  display: flex;
-  border-top: 1px solid #353430;
-  border-right: 1px solid #353430;
+  display: grid;
+  align-items: center;
+  justify-self: end;
+  padding: 20px 20px 20px 0;
 }
 
 .header__theme-menu {
   display: flex;
   flex-direction: column-reverse;
-  margin-block: -52px;
-
+  justify-self: center;
+  align-self: start;
+  margin-left: 22px;
 }
 
 .header__theme-menu-list {
@@ -96,12 +91,11 @@
   color: var(--secondary-color);
   background: transparent;
   cursor: pointer;
-  margin-right: 15px;
 }
 
 .header__theme-menu-button {
   border: 1px solid transparent;
-  padding: 2px 12px;
+  padding: 2px 12px 3px;
   background: transparent;
   line-height: 18px;
   font-weight: 400;
@@ -119,30 +113,30 @@
 
 .decorated-zone {
   position: relative;
-  max-height: 768px;
 }
 
-.decorated-zone::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inline-size: 25px;
-  block-size: 25px;
-}
-
+.decorated-zone::before,
 .decorated-zone::after {
   content: "";
   position: absolute;
   z-index: -1;
-  inline-size: 25px;
-  block-size: 25px;
+  height: 25px;
+  width: 25px;
+  border: 1px solid var(--secondary-color, #ff0070);
 }
 
 .decorated-zone::before {
-  border-inline-end: 1px solid var(--secondary-color, #ff0070);
-  border-block-start: 1px solid var(--secondary-color, #ff0070);
-  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 10px);
-  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw);
+  border-width: 1px 1px 0 0;
+  inset: 20px 20px auto auto;
+}
+
+.decorated-zone::after {
+  border-width: 0 0 1px 1px;
+  inset: auto auto 20px 0;
+}
+
+.title__list {
+  font-weight: 400;
 }
 
 .decorated-zone::after {
@@ -162,19 +156,8 @@
   border-bottom: 1px solid var(--secondary-color);
 }
 
-.page-title {
-  color: var(--brand-color);
-  font-weight: 700;
-  font-size: 157px;
-  line-height: 82.5%;
-  text-shadow: 4px 4px 0 var(--accent-color);
-  margin-inline: -50px;
-}
-
 .header__title {
   max-width: 491px;
-  margin-block-end: 33px;
-  margin-inline-end: -10px;
   background-color: var(--accent-color);
   color: var(--highlight-color);
   font-size: 18px;
@@ -182,11 +165,13 @@
   font-size: inherit;
   line-height: inherit;
   justify-self: end;
-  margin-block: -136px;
+}
+
+.title__list {
+  margin-top: 5px;
 }
 
 .title {
-  max-width: 315px;
   color: var(--secondary-color);
   font-size: 18px;
   font-style: normal;
@@ -194,40 +179,39 @@
   font-size: inherit;
   line-height: inherit;
   line-height: 23.4px;
+  font-family: IBM Plex Mono;
+  font-size: 18px;
 }
 
 .main {
   display: grid;
-  gap: 50px;
-  padding: 40px 10px;
+  gap: 52px;
+  padding: 60px 20px;
 }
 
 .section {
   display: grid;
-  gap: 10px;
+  gap: 20px;
+  grid-template-columns: clamp(14.75rem, -0.0625rem + 30.8594vw, 19.6875rem) 1fr;
 }
 
-.section-gallery {
-  margin-block: 225px;
-  margin-inline: -14px;
-}
-
-.section-why {
+.section-what__articles-list {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  margin-block: -218px;
-  margin-inline: -22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  grid-column: span 2;
 }
 
 .articles-list {
   display: grid;
-  gap: 10px;
+  gap: 14px;
 }
 
 .article {
   flex-direction: column;
   color: var(--text-color);
   display: grid;
+  gap: 15px;
 }
 
 .shadow-decor {
@@ -249,40 +233,40 @@
 .title-decor {
   background-color: var(--accent-color);
   color: var(--highlight-color);
-  max-width: 648.918px;
-  margin-inline: -5px;
-  margin-bottom: 20px;
-}
-
-.section-what {
-  margin-block: 238px;
-  margin-inline: -20px;
+  font-size: 18px;
+  font-family: IBM Plex Mono;
 }
 
 .section-what__articles-list {
   display: grid;
-  grid-template-columns: 315px 315px 315px ;
-  margin-block: 10px;
-  margin-inline: 5px;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
+.section-what {
+  margin-top: 25px;
+}
+
 .section-how__articles-list {
-  margin-inline: -179px;
-  display: flex;
   flex-direction: column;
-  max-width: 640px;
+}
+
+.section-how {
+  margin-top: 13px;
 }
 
 .section-how__title {
   background-color: var(--accent-color);
+  margin-bottom: 15px;
 }
 
-.section-how {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-block: -226px;
+.section-gallery__title,
+.gallery-list {
+  grid-column: span 2;
+}
+
+.section-gallery {
+  margin-top: 19px;
 }
 
 .gallery-list {
@@ -293,8 +277,14 @@
     "sunset sunset food"
     "cassette books food"
     "cassette road road";
-  padding-bottom: clamp(2.5rem, 5.089vw + 1.307rem, 3.75rem);
   gap: 20px;
+}
+
+.gallery-list__item-img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .sunset {
@@ -325,34 +315,54 @@
 }
 
 .footer {
-  text-align: center;
-  font-size: 157px;
+  justify-self: center;
   font-style: normal;
   font-weight: 700;
   line-height: 82.5%;
 }
 
+.footer-title {
+  margin-top: 300px;
+  justify-self: center;
+  align-self: center;
+  text-shadow: 2px 2px 0 #ff0070;
+}
+
 @media (width <= 768px) {
+  .header__theme-menu {
+    margin-top: 173px;
+    justify-self: end;
+  }
+
+  .rec-decor {
+    margin-left: 680px;
+    margin-bottom: 950px;
+  }
+
   .header__theme-menu-list {
     flex-direction: column;
-    align-items: flex-end;
   }
 
   .page-title {
     font-size: 120px;
+    text-shadow: 4px 4px 0 var(--accent-color);
   }
 
   .header__title {
     max-width: 364px;
   }
 
-  .title-decor {
-    width: 100%;
+  .title__what {
+    max-width: 236px;
   }
 
-  .title {
-    max-height: 70px;
-    width: 100%;
+  .footer-title {
+    margin-top: 445px;
+    text-shadow: 2px 2px 0 var(--accent-color);
+  }
+
+  .section-how {
+    margin-top: 10px;
   }
 
   .section-what {
@@ -360,31 +370,76 @@
     flex-direction: column;
   }
 
+  .article {
+    gap: 12px;
+  }
+
   .section-what__articles-list {
     display: flex;
     flex-direction: column;
+    gap: 25px;
+    line-height: 23.4px;
+    font-size: 18px;
+  }
+
+  .section-gallery {
+    margin-top: 30px;
   }
 }
 
 @media (width <= 375px) {
   .page-title {
     font-size: 116px;
+    text-shadow: 4px 4px 0 var(--accent-color);
+  }
+
+  .rec-decor{
+    margin-left: 295px;
+    margin-bottom: 685px;
+  }
+
+  .header__title {
+    margin-bottom: 45px;
   }
 
   .cover {
-    display: flex;
+    /* display: flex;
     align-items: flex-end;
-    flex-direction: column;
+    flex-direction: column; */
+    padding-bottom: 0;
+  }
+
+  .main {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    gap: 0;
   }
 
   .section-why {
     display: flex;
     flex-direction: column;
+    margin-top: 5px;
   }
 
   .section-how {
     display: flex;
     flex-direction: column;
+  }
+
+  .title__what {
+    padding-top: 20px;
+    max-width: 355px;
+  }
+
+  .footer-title {
+    margin-top: 250px;
+    margin-right: 15px;
+    text-shadow: 2px 2px 0 var(--accent-color);
+  }
+
+  .section-gallery {
+    padding-top: 20px;
   }
 
   .gallery-list {
