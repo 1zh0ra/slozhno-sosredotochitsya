@@ -390,9 +390,25 @@
 
 @media (width <= 375px) {
   .page-title {
-    margin: 0;
+    margin-top: 20px;
     font-size: 116px;
     text-shadow: 4px 4px 0 var(--accent-color);
+  }
+
+  .header__title {
+    margin-top: 28px;
+  }
+
+  .decorated-zone::before {
+    border-width: 1px 1px 0 0;
+    top: 10px;
+    right: 10px;
+  }
+
+  .decorated-zone::after {
+    border-width: 0 0 1px 1px;
+    left: 10px;
+    bottom: 10;
   }
 
   .rec-decor {
@@ -405,37 +421,19 @@
     gap: 30px;
   }
 
-  .decorated-zone::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    height: 25px;
-    width: 25px;
-    border: 1px solid var(--secondary-color, #ff0070);
-  }
-  
-  .decorated-zone::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    height: 25px;
-    width: 25px;
-    border: 1px solid var(--secondary-color, #ff0070);
-  }
-
   .cover {
     padding: 10px;
     padding-bottom: 33px;
   }
 
   .header__theme-menu {
-    margin-top: 62px;
+    margin-top: 65px;
   }
 
   .section-why {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 30px;
   }
 
   .section-how {
@@ -450,23 +448,28 @@
   }
 
   .footer-title {
-    margin-top: 50px;
-    grid-template-rows: 60px;
+    grid-template-rows: 20px;
     text-shadow: 2px 2px 0 var(--accent-color);
+    margin-top: 45px;
   }
 
   .section-gallery {
     margin-top: 20px;
+    gap: 10px;
+  }
+
+  .footer {
+    margin-top: 30px;
   }
 
   .gallery-list__item-img {
     display: block;
-
+    gap: 10px;
   }
 
   .gallery-list {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 10px;
   }
 }
