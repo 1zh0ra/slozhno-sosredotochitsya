@@ -294,8 +294,7 @@
 }
 
 .footer {
-  margin-top: 10px;
-  grid-template-rows: 140px 1rem;
+  grid-template-rows: 100px;
   display: grid;
   font-style: normal;
   font-weight: 700;
@@ -318,10 +317,14 @@
 
   .articles-list {
     gap: 20px;
-  }
+  }  
 
   .articles {
     gap: 10px;
+  }
+
+  .header__title {
+    max-width: 364px;
   }
 
   .rec-decor {
@@ -342,9 +345,9 @@
     grid-template-rows: 190px 2rem;
     text-shadow: 2px 2px 0 var(--accent-color);
   }
-
+  
   .section-what {
-    display: flex;
+    display: grid;
     flex-direction: column;
   }
 
@@ -378,7 +381,7 @@
   .decorated-zone::after {
     border-width: 0 0 1px 1px;
     left: 10px;
-    bottom: 10;
+    bottom: 30px;
   }
 
   .rec-decor {
@@ -388,12 +391,12 @@
 
   .main {
     padding: 10px;
-    gap: 30px;
+    gap: 20px;
   }
 
   .cover {
     padding: 10px;
-    padding-bottom: 33px;
+    padding-bottom: 55px;
   }
 
   .header__theme-menu {
@@ -403,17 +406,21 @@
   .section-why {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   .section-how {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
   }
-
+  
   .title__what {
-    padding-top: 20px;
+    padding-top: 30px;
+  }
+
+  .section-what {
+    display: flex;
   }
 
   .footer-title {
@@ -422,12 +429,12 @@
   }
 
   .section-gallery {
-    margin-top: 20px;
+    margin-top: 30px;
     gap: 10px;
   }
 
   .footer {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   .gallery-list__item-img {
