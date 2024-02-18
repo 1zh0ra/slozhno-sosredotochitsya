@@ -143,24 +143,17 @@
   z-index: -1;
   height: 25px;
   width: 25px;
-  border: 1px solid var(--secondary-color, #ff0070);
-}
-
-.decorated-zone::after {
   border-width: 0 0 1px 1px;
   left: 20px;
   bottom: 0;
-}
-
-.title__list {
-  font-weight: 400;
-}
-
-.decorated-zone::after {
   border-inline-start: 1px solid var(--secondary-color, #ff0070);
   border-block-end: 1px solid var(--secondary-color, #ff0070);
   inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+.title__list {
+  font-weight: 400;
 }
 
 .header__theme-menu-button_active {
@@ -169,7 +162,7 @@
   pointer-events: none;
 }
 
-.header__theme-menu-button:hover {
+.header__theme-menu-button:not(:disabled):hover {
   border: 1px solid var(--hover-color);
 }
 
@@ -210,8 +203,9 @@
 
 .section-what__articles-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-column: span 2;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .articles-list {
@@ -224,10 +218,6 @@
   color: var(--text-color);
   display: grid;
   gap: 10px;
-}
-
-.shadow-decor {
-  text-shadow: 4px 4px 0 #ff0070;
 }
 
 .link:hover {
@@ -249,12 +239,6 @@
   font-family: var(--page-font-family, "IBM Plex mono", monospace);
 }
 
-.section-what__articles-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
 .section-how__articles-list {
   flex-direction: column;
 }
@@ -269,10 +253,6 @@
 }
 
 .gallery-list {
-  grid-column: span 2;
-}
-
-.gallery-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, min-content);
@@ -281,6 +261,7 @@
     "cassette books food"
     "cassette road road";
   gap: 20px;
+  grid-column: span 2;
 }
 
 .gallery-list__item-img {
@@ -357,14 +338,6 @@
     text-shadow: 4px 4px 0 var(--accent-color);
   }
 
-  .header__title {
-    max-width: 364px;
-  }
-
-  .title__what {
-    max-width: 236px;
-  }
-
   .footer-title {
     grid-template-rows: 190px 2rem;
     text-shadow: 2px 2px 0 var(--accent-color);
@@ -384,7 +357,7 @@
   }
 }
 
-@media (width <= 375px) {
+@media (width <= 550px) {
   .page-title {
     margin-top: 20px;
     font-size: 116px;
@@ -393,6 +366,7 @@
 
   .header__title {
     margin-top: 28px;
+    max-width: 364px;
   }
 
   .decorated-zone::before {
